@@ -5,7 +5,6 @@ view: user_event_facts {
           min(eventtimestamp) as user_first_seen,
           max(eventtimestamp) as latest_session
          FROM event_table
-        WHERE (( eventtimestamp >= ((DATEADD(month,-5, DATE_TRUNC('month', DATE_TRUNC('day',GETDATE())) ))) AND eventtimestamp < ((DATEADD(month,6, DATEADD(month,-5, DATE_TRUNC('month', DATE_TRUNC('day',GETDATE())) ) )))))
         GROUP BY 1 ;;
   }
   
